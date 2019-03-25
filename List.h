@@ -25,12 +25,12 @@ public:
 	void pop_back();
 	void push_back(T data);
 	void push_front(T data);
-	void insert(T data, int index);
-	T at(int index);
-	void remove(int index);
+	void insert(T data, size_t index);
+	T at(size_t index);
+	void remove(size_t index);
 	int getSize() { return size; }
 	void clear();
-	void set(T data, int index);
+	void set(T data, size_t index);
 	bool isEmpty() { return ((size == 0) && (head == nullptr)); }
 	template <typename T> friend  std::ostream& operator << (std::ostream &, List<T> &);
 
@@ -107,9 +107,9 @@ void List<T>::push_front(T data)
 }
 
 template<typename T>
-void List<T>::insert(T data, int index)
+void List<T>::insert(T data, size_t index)
 {
-	if (index < 0) throw std::invalid_argument("Index must be >= 0");
+	//if (index < 0) throw std::invalid_argument("Index must be >= 0");
 	if (index >= size) throw std::invalid_argument("Index is larger than size of list");
 
 	if (index == 0)
@@ -134,9 +134,9 @@ void List<T>::insert(T data, int index)
 }
 
 template<typename T>
-inline T List<T>::at(int index)
+inline T List<T>::at(size_t index)
 {
-	if (index < 0) throw std::invalid_argument("Index must be >= 0");
+	//if (index < 0) throw std::invalid_argument("Index must be >= 0");
 	if (index >= size) throw std::invalid_argument("Index is larger than size of list");
 
 	int counter = 0;
@@ -155,9 +155,9 @@ inline T List<T>::at(int index)
 }
 
 template<typename T>
-inline void List<T>::set(T data, int index)
+inline void List<T>::set(T data, size_t index)
 {
-	if (index < 0) throw std::invalid_argument("Index must be >= 0");
+	//if (index < 0) throw std::invalid_argument("Index must be >= 0");
 	if (index >= size) throw std::invalid_argument("Index is larger than size of list");
 
 	int counter = 0;
@@ -176,9 +176,9 @@ inline void List<T>::set(T data, int index)
 }
 
 template<typename T>
-void List<T>::remove(int index)
+void List<T>::remove(size_t index)
 {
-	if (index < 0) throw std::invalid_argument("Index must be >= 0");
+	//if (index < 0) throw std::invalid_argument("Index must be >= 0");
 	if (index >= size) throw std::invalid_argument("Index is larger than size of list");
 
 	if (index == 0)

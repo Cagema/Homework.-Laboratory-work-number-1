@@ -163,15 +163,6 @@ TEST_F(ClassDeclaration, Insert_onDoub_NormArg3) {
 	ASSERT_EQ(2.2, objDouble.at(2));
 }
 
-TEST_F(ClassDeclaration, Insert_onInt_NegativeArg) { // <0
-	try {
-		objInt.insert(15, -3);
-	}
-	catch (std::exception& ex) {
-		EXPECT_STREQ("Index must be >= 0", ex.what());
-	}
-}
-
 TEST_F(ClassDeclaration, Insert_onInt_BiggerSize) { //bigger than size
 	try {
 		objInt.push_back(1);
@@ -181,15 +172,6 @@ TEST_F(ClassDeclaration, Insert_onInt_BiggerSize) { //bigger than size
 	}
 	catch (std::exception& ex) {
 		EXPECT_STREQ("Index is larger than size of list", ex.what());
-	}
-}
-
-TEST_F(ClassDeclaration, At_onInt_NegativeArg) { // <0
-	try {
-		objInt.at(-1);
-	}
-	catch (std::exception& ex) {
-		EXPECT_STREQ("Index must be >= 0", ex.what());
 	}
 }
 
@@ -213,15 +195,6 @@ TEST_F(ClassDeclaration, At_onString_NormArg) {
 	objString.at(0);
 
 	ASSERT_EQ("Str1", objString.at(0));
-}
-
-TEST_F(ClassDeclaration, Remove_onChar_NegativeArg) { // < 0
-	try {
-		objChar.remove(-1);
-	}
-	catch (std::exception& ex) {
-		EXPECT_STREQ("Index must be >= 0", ex.what());
-	}
 }
 
 TEST_F(ClassDeclaration, Remove_onChar_BiggerThanSizeArg) { // bigger than size
@@ -269,15 +242,6 @@ TEST_F(ClassDeclaration, Clear_onInt){
 	objInt.clear();
 
     ASSERT_EQ(1, objInt.isEmpty());
-}
-
-TEST_F(ClassDeclaration, Set_onDoub_NegativeArg){
-    try {
-        objDouble.set(1.1, -1);
-    }
-    catch (std::exception& ex) {
-        EXPECT_STREQ("Index must be >= 0", ex.what());
-    }
 }
 
 TEST_F(ClassDeclaration, Set_onDoub_BiggerThanSizeArg){
