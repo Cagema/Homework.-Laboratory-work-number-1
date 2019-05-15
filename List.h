@@ -1,4 +1,7 @@
 #pragma once
+#include "../Template List 1/Template List 1/pch.h"
+#include <stdio.h>
+#include <iostream> 
 
 template<typename T>
 class Node
@@ -32,13 +35,13 @@ public:
 	void clear();
 	void set(T data, size_t index);
 	bool isEmpty() { return ((size == 0) && (head == nullptr)); }
-	template <typename T> friend  std::ostream& operator << (std::ostream &, List<T> &);
+	template <typename T1> friend  std::ostream& operator << (std::ostream &, List<T1> &);
 
-	
+
 
 private:
 	int size = 0;
-	Node<T> *head;
+	Node<T> *head = nullptr;
 };
 
 template<typename T>
@@ -210,7 +213,6 @@ void List<T>::pop_back()
 {
 	remove(size - 1);
 }
-
 template<typename T>
 inline std::ostream & operator<<(std::ostream & out, List<T>& list)
 {
